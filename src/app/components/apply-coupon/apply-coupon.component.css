@@ -1,0 +1,16 @@
+.coupon-container {
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .original-price {
+    text-decoration: line-through;
+    color: red;
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  

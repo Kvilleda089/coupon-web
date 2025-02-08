@@ -1,0 +1,14 @@
+<div class="coupon-container">
+    <h3>Aplicar Cupón de Descuento</h3>
+    <input type="text" [(ngModel)]="couponCode" placeholder="Ingresa tu código de cupón" class="form-control mb-2" />
+    <button (click)="appliDiscont()" class="btn btn-primary">Aplicar Descuento</button>
+  
+    <div *ngIf="discountedPrice !== null" class="mt-3">
+      <p>Precio original: <span class="original-price">${{ originalPrice }}</span></p>
+      <p>Descuento aplicado: {{ discountPercentage }}%</p>
+      <p><strong>Nuevo precio: ${{ discountedPrice }}</strong></p>
+    </div>
+  
+    <p *ngIf="errorMessage" class="error mt-2">{{ errorMessage }}</p>
+  </div>
+  

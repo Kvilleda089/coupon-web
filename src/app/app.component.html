@@ -1,0 +1,26 @@
+<button (click)="openCouponDialog()" class="newCoupon">Crear cupón</button>
+
+<!-- Modal -->
+<div *ngIf="displayCouponDialog" class="modal-overlay" (click)="closeCouponDialog()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <h2>Crear Cupón</h2>
+    <label for="couponCode">Código del cupón:</label>
+    <input id="couponCode" [(ngModel)]="newCouponCode" type="text" placeholder="Ej: SUMMER2025" />
+
+    <label for="discountPercentage">Porcentaje de descuento:</label>
+    <input id="discountPercentage" [(ngModel)]="newDiscountPercentage" type="number" placeholder="Ej: 15" />
+
+    <label for="expirationDate">Fecha de expiración:</label>
+    <input id="expirationDate" [(ngModel)]="newExpirationDate" type="date" />
+
+    <button (click)="createCoupon()">Crear cupón</button>
+    <button (click)="closeCouponDialog()">Cerrar</button>
+  </div>
+</div>
+
+
+<app-product-list></app-product-list>
+
+
+
+<router-outlet />

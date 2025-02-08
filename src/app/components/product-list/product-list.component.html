@@ -1,0 +1,25 @@
+<div class="product-container">
+    <div *ngFor="let product of products" class="product-card">
+      <img [src]="product.image" [alt]="product.name" />
+      <h2>{{ product.name }}</h2>
+      <p>{{ product.description }}</p>
+      <p><strong>Precio Original:</strong> Q{{ product.price }}</p>
+  
+      <button (click)="toggleCouponInput(product.id)">Aplicar Descuento</button>
+  
+      <div *ngIf="showCouponInput[product.id]">
+        <input [(ngModel)]="couponCode" placeholder="Ingresa el cupón" />
+        <button (click)="applyDiscount(product)">Aplicar</button>
+      </div>
+  
+      <div *ngIf="product.discont">
+        <p><strong>Descuento Aplicado:</strong> {{ product.discont }}%</p>
+        <p><strong>Precio con Descuento:</strong> Q{{ getDiscountedPrice(product) }}</p>
+      </div>
+  
+      <div *ngIf="invalidCouponMessage[product.id]" class="error-message" style='color: red;'>
+        <p>{{ invalidCouponMessage[product.id] }}</p> 
+      </div>
+    </div>
+  </div>
+  
